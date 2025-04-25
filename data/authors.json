@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Guy Lerner",
+    "email": "guy.lerner12@example.com",
+    "password": "<hashed-password>",
+    "bio": "Renowned author of fantasy novels"
+  },
+  {
+    "name": "Daniel Seth",
+    "email": "daniel.seth@example.com",
+    "password": "<hashed-password>",
+    "bio": "Author of epic science fiction sagas"
+  },
+  {
+    "name": "Yuval",
+    "email": "yuval@example.com",
+    "password": "$2b$10$9nyirR2hK9rofKSHZocTnOT3rROb3bAezBotYddQmbPjNnbIOMcN2",
+    "bio": "25 Year old like writing Action Novels. "
+  }
+]

@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# Book Author Microservice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack application for managing authors and books, built with a React frontend and an Express backend. The frontend runs on `http://localhost:3000`, and the backend runs on `http://localhost:4000`.
 
-## Available Scripts
+## Project Structure
+- `frontend/`: React frontend (runs on `http://localhost:3000`)
+- `backend/`: Express backend (runs on `http://localhost:4000`)
+- `data/`: JSON files for storing authors and books (`authors.json`, `books.json`)
 
-In the project directory, you can run:
+## Prerequisites
+- Node.js (v16 or higher recommended)
+- npm (v6 or higher recommended)
+- A Cloudinary account (for image uploads)
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Step 1: Clone the Repository
+Clone the repository to your local machine:
+```bash
+git clone <repository-url>
+cd book-author-microservice
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Step 2: Set Up Environment Variables
+Copy the .env.example file to .env:
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+copy .env.example .env
+Open .env in a text editor and fill in your Cloudinary credentials:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+REACT_APP_API_URL=http://localhost:4000
+Replace your_cloud_name, your_api_key, and your_api_secret with your Cloudinary account credentials.
+REACT_APP_API_URL is already set to http://localhost:4000, which matches the backend port.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Step 3: Install Dependencies
+This project has three package.json files: one in the root, one in frontend/, and one in backend/. You need to run npm i in each directory to install dependencies.
 
-### `npm run eject`
+Install Root Dependencies (for running both frontend and backend together):
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm i
+This installs concurrently, which is used to run the frontend and backend simultaneously.
+Install Frontend Dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd frontend
+npm i
+cd ..
+This installs dependencies for the React frontend (react, axios, react-router-dom, etc.).
+Install Backend Dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+cd backend
+npm i
+cd ..
+This installs dependencies for the Express backend (express, bcrypt, cloudinary, etc.).
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Step 4: Run the Application
+Start Both Frontend and Backend:
+From the root directory (book-author-microservice/), run:
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+npm run dev
+This starts both the backend (on http://localhost:4000) and the frontend (on http://localhost:3000) simultaneously using concurrently.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Step 5: Test the Application
+
+Manage Authors:
+Add Guy Lerner:
+Name: Guy Lerner
+Email: guy.lerner@example.com
+Password: password123
+Bio: Renowned author of fantasy novels
+Add Daniel Seth:
+Name: Daniel Seth
+Email: daniel.seth@example.com
+Password: password123
+Bio: Author of epic science fiction sagas
+Verify in data/authors.json that both authors are added.
+Test editing and deleting authors as needed.
+
+
+Manage Books:
+
+Add Lord of the Rings:
+Title: Lord of the Rings
+ISBN: 978-0544003415
+Genre: Fantasy
+Published Year: 1954
+Image: Upload a book cover image (requires Cloudinary credentials)
+
+Add Dune:
+Title: Dune
+ISBN: 978-0441172719
+Genre: Science Fiction
+Published Year: 1965
+Image: Upload a book cover image
+Verify in data/books.json that both books are added.
+Test editing and deleting books as needed.
+
+
+Notes
+Cloudinary Credentials: You’ll need a Cloudinary account to upload book cover images. If you don’t have credentials, you can create a free account at Cloudinary and update the .env file with your credentials.
+Ports: The frontend runs on port 3000, and the backend runs on port 4000. If these ports are in use, you can change them in frontend/package.json (for the frontend) and backend/server.js (for the backend).
+Dependencies: Ensure you run npm i in the root, frontend/, and backend/ directories as specified in the setup instructions.
+Testing: The project has been tested with the authors and books listed above. Ensure your Cloudinary credentials are set up to test image uploads.

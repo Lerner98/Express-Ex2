@@ -1,0 +1,16 @@
+[
+    {
+      "title": "Lord of the Rings",
+      "isbn": "978-0544003415",
+      "genre": "Fantasy",
+      "publishedYear": 1954,
+      "image": "https://res.cloudinary.com/dqc4ai7d2/image/upload/c_auto,g_auto,w_500,h_500,f_auto,q_auto/books/978-0544003415"
+    },
+    {
+      "title": "Dune",
+      "isbn": "978-0441172719",
+      "genre": "Science Fiction",
+      "publishedYear": 1965,
+      "image": "https://res.cloudinary.com/dqc4ai7d2/image/upload/c_auto,g_auto,w_500,h_500,f_auto,q_auto/books/978-0441172719"
+    }
+  ]
